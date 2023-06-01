@@ -2,6 +2,8 @@
 
 use PHPSF\Controller\{
     CadastroCidadaoController,
+    EdicaoController,
+    ExclusaoController,
     InicioController,
     ListarNisController,
     SalvarCadastroController,
@@ -14,4 +16,6 @@ return [
     '/listar-nis'       => ListarNisController::class,
     '/cadastro-cidadao' => CadastroCidadaoController::class,
     '/salvar-cadastro'  => SalvarCadastroController::class,
+    '/alterar-cadastro' => EdicaoController::class,
+    '/excluir-cadastro' => ExclusaoController::class,
 ];
