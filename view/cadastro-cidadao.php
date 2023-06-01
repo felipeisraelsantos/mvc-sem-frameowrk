@@ -1,11 +1,16 @@
 <?php include __DIR__ . '/header.php'; ?>
-<h1>Cadastrar Cidadão</h1>
+<h1><?= $titulo ?></h1>
 
-<form action="/salvar-cadastro" method="POST">
+<form action="/salvar-cadastro<?= isset($cidadao) ? '?id='.$cidadao->getId() : '' ?>"
+  method="POST">
 
-  <div class="mb-3">
+  <div class="mb-3 cad">
     <label for="nomeCidadao" class="form-label">Nome Completo</label>
-    <input type="text" class="form-control" id="nomeCidadao" name="nomeCidadao" autofocus>
+    <input type="text" class="form-control mb-3" id="nomeCidadao" name="nomeCidadao"
+    value="<?= isset($cidadao) ? $cidadao->getNomeCidadao() : '' ?>" 
+    minlength="3"
+    autofocus >
+    <span>No minimo 3 caracteres</span>
   </div>
 
   <div class="mb-3">
