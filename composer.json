@@ -1,0 +1,21 @@
+{
+    "name": "estudo/phpsf",
+    "description": "Cadastro de nis",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "PHPSF\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felipe Israel",
+            "email": "felipe.israel@aluno.ifsp.edu.br"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.9",
+        "symfony/cache": "^5.3",
+        "doctrine/annotations": "1.14"
+    }
+}
