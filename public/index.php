@@ -1,36 +1,18 @@
 <?php
 
+use PHPSF\Controller\InterfaceProcessaRequisicao;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-use PHPSF\Controller\CadastroCidadaoController;
-use PHPSF\Controller\InicioController;
-use PHPSF\Controller\ListarNisController;
-use PHPSF\Controller\SalvarCadastroController;
+$caminho = @$_SERVER['PATH_INFO'];
 
-switch (@$_SERVER['PATH_INFO']) {
-  case '/listar-nis':
-    $controlador = new ListarNisController();
-    $controlador->processaRequisicao();
-    break;
+$rotas = require __DIR__."/../config/routes.php";
 
-  case '/cadastro-cidadao':
-    $controlador = new CadastroCidadaoController();
-    $controlador->processaRequisicao();
-    break;
-
-  case '/salvar-cadastro':
-    $controlador = new SalvarCadastroController();
-    $controlador->processaRequisicao();
-    break;
-
-  case '':
-  case '/':
-  case '/index':
-    $controlador = new InicioController();
-    $controlador->processaRequisicao();
-    break;
-
-  default:
-    echo "Erro 404 - Página não encontrada";
-    break;
+if (!array_key_exists($caminho, $rotas)) {
+  http_response_code(404);
+  exit();
 }
+
+/** @var InterfaceProcessaRequisicao */
+$controlador = new $rotas[$caminho];
+$controlador->processaRequisicao();
