@@ -5,8 +5,13 @@
 
 <ul class="list-group">
     <?php foreach ($cadastros as $cadastro) : ?>
-        <li class="list-group-item">
+        <li class="list-group-item d-flex justify-content-between">
             <?= "{$cadastro->getNomeCidadao()} - {$cadastro->getNis()} " ?>
+
+            <span>
+                <a href="/alterar-cadastro?id=<?= $cadastro->getId(); ?>" class="btn btn-warning btn-sm">Atualizar</a>
+                <a href="/excluir-cadastro?id=<?= $cadastro->getId(); ?>" class="btn btn-danger btn-sm">excluir</a>
+            </span>
         </li>
     <?php endforeach; ?>
 </ul>
