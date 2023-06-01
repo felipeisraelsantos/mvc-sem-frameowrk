@@ -17,5 +17,8 @@
         "doctrine/orm": "^2.9",
         "symfony/cache": "^5.3",
         "doctrine/annotations": "1.14"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.4"
     }
 }
